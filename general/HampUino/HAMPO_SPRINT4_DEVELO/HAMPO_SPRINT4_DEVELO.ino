@@ -1,5 +1,7 @@
 /*    Daniel Burruchaga Sola
+
       HAMPO.ino
+
       (X)Lectura de Temperatura Humedad / Modificacion Temp
       (X)SEGURIDAD
       (X)MOVIMIENTO
@@ -24,7 +26,6 @@ unsigned int cont = 1;
 #include <Adafruit_I2CRegister.h>
 #include <Adafruit_SPIDevice.h>
 
-
 #include <SPI.h>
 #include <Wire.h>
 #include "Adafruit_GFX.h"
@@ -41,6 +42,63 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 #define PIN_LED_UP 17
 #define PIN_LED_DOWN 16
 bool energyKey = false;
+//======================================== TIMER =========================================================
+#include <WiFi.h>
+#include "time.h"
+
+char ssid[15];
+char password[15];
+
+const char* ntpServer = "pool.ntp.org";
+const long  gmtOffset_sec = 3600;
+const int   daylightOffset_sec = 3600;
+bool syncDone = false;
+void connectWifi() {
+  while (true) {
+    if (Serial.available()) {
+
+      display.clearDisplay();
+      display.setTextSize(1);
+
+        display.setTextColor(SSD1306_WHITE);
+        display.setCursor(0, 0);
+      if (Serial.read() == '+') {
+        syncDone = true;
+        display.println("SYNC DONE");
+        display.display(); // actually display all of the above
+
+        String SSID_string = Serial.readStringUntil('*');
+        //  ssid  = data;
+        //Serial.print(data);
+        SSID_string.toCharArray(ssid, sizeof(SSID_string));
+        String PASS_string = Serial.readStringUntil('$');
+        PASS_string.toCharArray(password, sizeof(PASS_string));
+
+        //Serial.println(ssid);
+        //Serial.println(password);
+
+        display.print("Connecting to ssid: ");
+        display.println(SSID_string);
+        display.print(" Password: ");
+        display.println(PASS_string);
+       display.display(); // actually display all of the above
+
+        break;
+      }
+    }
+    
+  }
+}
+
+void printLocalTime()
+{
+  struct tm timeinfo;
+  if (!getLocalTime(&timeinfo)) {
+    //Serial.println("Failed to obtain time");
+    return;
+  }
+  Serial.print(&timeinfo, "%A, %B %d %Y %H:%M:%S");
+}
 // ===================================== SERVO ===========================================================
 #include <ESP32Servo.h>
 int pinServo = 2;
@@ -89,25 +147,15 @@ void Ultrasonidos_Timer() {
     counterSeconds++;
   }
   if (counterSeconds == 20) { // Cuenta cada Hora
-    sendAndroidValues();
-
-    ////////==============================================
-    distance_bebedero = ultrasonidos(34); ////CAMBIARR
-    ////////==============================================
-
+    if (syncDone)sendAndroidValues();
+    counterSeconds++;
+    distance_bebedero = ultrasonidos(34);
   }
+
+  //El trigger de los dos ultrasonidos van al mismo pin pero se ejecuta en tiempos diferentes
 
   if (counterSeconds == 40) { // Cuenta cada Hora
     distance_comedero = ultrasonidos(35);
-    /*Serial.print("DistanceB: ");
-      Serial.println(distance_bebedero);
-      Serial.print("DistanceC: ");
-      Serial.println(distance_comedero);*/
-
-    ////////==============================================
-    distance_bebedero = ultrasonidos(34); ////CAMBIARR
-    ////////==============================================
-
     counterSeconds = 0;
   }
 }
@@ -207,6 +255,7 @@ void getTempHumLum() {
   bufferTemp[cont] = dht.readTemperature(); // Buffer con datos de lectura Temperatura
   bufferHum[cont] = dht.readHumidity(); // Buffer con datos de lectura Humedad
   bufferLum[cont] = analogRead(LUM_PIN); // Buffer con datos de lectura Humedad
+  //============================================================================================================================ DESCOMENTAR ======================================================0
   //Si no realiza bien la lectura
   if (isnan(bufferTemp[cont]) or isnan(bufferHum[cont])) {
     Serial.println("ERROR AL LEER SENSOR HUM/TEMP");
@@ -214,10 +263,6 @@ void getTempHumLum() {
   mediaTemp = media_temp();
   mediaHum = media_hum();
   mediaLum = map(media_lum(), 0, 4095, 0, 100);
-  /* Serial.print("H Media: ");
-    Serial.print(mediaHum);
-    Serial.print(" T Media: ");
-    Serial.println(mediaTemp);*/
 }
 
 void regularTemp() {
@@ -270,8 +315,8 @@ void Interrupts() {
     portENTER_CRITICAL(&mux);
     portEXIT_CRITICAL(&mux);
     numberOfInterruptsMovimiento++;
-    Serial.print("MOVIMIENTO ");
-    Serial.println(numberOfInterruptsMovimiento);
+    //Serial.print("MOVIMIENTO ");
+    //Serial.println(numberOfInterruptsMovimiento);
   }
 
   if (interruptCounterVueltas > 0) {
@@ -281,8 +326,8 @@ void Interrupts() {
     numberOfInterruptsVueltas++;
     metro_recorridos = numberOfInterruptsVueltas * 0.12;
 
-    Serial.print("Vueltas ");
-    Serial.println(numberOfInterruptsVueltas);
+    //Serial.print("Vueltas ");
+    //Serial.println(numberOfInterruptsVueltas);
   }
 
   if (interruptCounterSeguridad > 0) {
@@ -290,41 +335,41 @@ void Interrupts() {
     portENTER_CRITICAL(&muxSeguridad);
     portEXIT_CRITICAL(&muxSeguridad);
     numberOfInterruptsSeguridad++;
-    Serial.print("Seguridad");
-    Serial.println(numberOfInterruptsSeguridad);
+    //Serial.print("Seguridad");
+    //Serial.println(numberOfInterruptsSeguridad);
   }
 }
 //================================= DESINFECTAR AGUA  && Servo =================================
-void desinfectarAgua() {
+void SerialCase() {
   if (Serial.available()) {
     switch (Serial.read()) {
       case 'g':  // EN EL SERIAL HAY QUE ENVIAR DOS ==  gg
         digitalWrite(PIN_DESINFECTAR, HIGH);
-        Serial.println("DESINFECTAR_ON");
+        // Serial.println("DESINFECTAR_ON");
         break;
       case 't':  // EN EL SERIAL HAY QUE ENVIAR DOS ==  gg
         digitalWrite(PIN_LED_UP, HIGH);
         digitalWrite(PIN_LED_DOWN, LOW);
-        Serial.println("UP");
+        // Serial.println("UP");
         break;
       case 's':  // EN EL SERIAL HAY QUE ENVIAR DOS ==  gg
         digitalWrite(PIN_LED_DOWN, HIGH);
         digitalWrite(PIN_LED_UP, LOW);
-        Serial.println("DOWN");
+        //  Serial.println("DOWN");
         break;
       case 'f':  // EN EL SERIAL HAY QUE ENVIAR DOS ==  ff
         digitalWrite(PIN_DESINFECTAR, LOW);
-        Serial.println("DESINFECTAR_OFF");
+        // Serial.println("DESINFECTAR_OFF");
         break;
       case 'p':
         digitalWrite(PIN_LED_DOWN, HIGH);
         digitalWrite(PIN_LED_UP, HIGH);
-        Serial.println("BOTH");
+        // Serial.println("BOTH");
         break;
       case 'q':
         digitalWrite(PIN_LED_DOWN, LOW);
         digitalWrite(PIN_LED_UP, LOW);
-        Serial.println("DOWN");
+        // Serial.println("DOWN");
         break;
       case 'h':
         tone(pinServo, 100,
@@ -344,6 +389,7 @@ void desinfectarAgua() {
       case 'k':
         sendAndroidValues();
         break;
+
     }
   }
 }
@@ -362,7 +408,7 @@ void Adiestramiento() {
       case 'a':
         ledcWriteTone(channel, 2000);
         keyAdiestramiento = true;
-        Serial.println("INICIO BUZZER");
+        //Serial.println("INICIO BUZZER");
         break;
     }
   }
@@ -370,19 +416,19 @@ void Adiestramiento() {
     counterAdiestramiento++;
     if (counterAdiestramiento == 100) {
       ledcWriteTone(channel, 0);
-      Serial.println("FIN BUZZER");
+      //Serial.println("FIN BUZZER");
     }
 
     if (counterAdiestramiento == 1000) {/// 30 segundos para pulsar el botón
       counterAdiestramiento = 0;
       keyAdiestramiento = false;
-      Serial.println("FIN ADIESTRAMIENTO");
+      //Serial.println("FIN ADIESTRAMIENTO");
 
     }
 
     if  (interruptCounterAdiestramiento > 0) {
       keyAdiestramiento = false;
-      Serial.println("FIN ADIESTRAMIENTO");
+      //Serial.println("FIN ADIESTRAMIENTO");
       counterAdiestramiento = 0;
       interruptCounterAdiestramiento = 0;
       portENTER_CRITICAL(&muxAdiestramiento);
@@ -422,18 +468,18 @@ void mostrarPantalla() {
 }
 
 //==========================================================================================
-float Enviar[7] = {};
+float Enviar[8] = {};
 
-String datas[7] = {};
+String datas[8] = {};
 void sendAndroidValues()
-{
-  datas[0] = "Temperatura";
+{ datas[0] = "Temperatura";
   datas[1] = "Humedad";
   datas[2] = "Movimiento";
   datas[3] = "Luminosidad";
   datas[4] = "BebederoCm";
   datas[5] = "ComederoCm";
   datas[6] = "MetrosRecorridos";
+  datas[7] = "Time";
 
   Enviar[0] = mediaTemp;
   Enviar[1] = mediaHum;
@@ -442,33 +488,29 @@ void sendAndroidValues()
   Enviar[4] = distance_bebedero;
   Enviar[5] = distance_comedero;
   Enviar[6] = metro_recorridos;
+  Enviar[7] = 1;
 
   Serial.print('{');              //hay que poner # para el comienzo de los datos, así Android sabe que empieza el String de datos
-  for (int k = 0; k < 7; k++)
-  { /*if ( k == 0) {
-      Serial.print("\"");
-      Serial.print("Gatos");
-       Serial.print("\":");
-      Serial.print('{');
-
-      }
-    */
-    Serial.print("\"");
+  for (int k = 0; k < 8; k++)
+  { Serial.print("\"");
     Serial.print(datas[k]);
     Serial.print("\"");
     Serial.print(":");
     Serial.print("\"");
-    Serial.print(Enviar[k]);
+    if (k == 7) {
+      //init and get the time
+      printLocalTime();
+    }
+    else {
+      Serial.print(Enviar[k]);
+    }
     Serial.print("\"");
-    if ( k != 6) {
+    if ( k != 7) {
       Serial.print(',');            //separamos los datos con el +, así no es más fácil debuggear la información que enviamos
     }
   }
   Serial.print('}');               //con esto damos a conocer la finalización del String de datos
   Serial.print("##");               //con esto damos a conocer la finalización del String de datos
-
-  //Serial.print("{\"Temperatura\":\""mediaTemp"\",\"height\":\"4\"}");
-  //delay(200);                       //IMPORTANTE CADA x ms envia si es muy bajo no recibe la app
 }
 
 
@@ -487,7 +529,6 @@ void setup() {
   //ULTRASONIDOS
   pinMode(PIN_TRIGGER, OUTPUT);
   pinMode(PIN_ECHO_COMER, INPUT);
-
   pinMode(PIN_ECHO_BEBER, INPUT);
 
   // INTERRUPCIÓN PARA PIR MOVIMIENTO
@@ -511,25 +552,47 @@ void setup() {
     for (;;);
   }
   delay(1000);
-  Serial.println("***********************************************");
-  Serial.println("            INICIADO HAMPO V1.0");
-  Serial.println("***********************************************");
-  Serial.println();
-  Serial.println("             PRUEBAS VERIFICADAS");
-  Serial.println();
-  Serial.println("(X)Lectura de Temperatura Humedad / Modificacion Temp");
-  Serial.println("(X)SEGURIDAD");
-  Serial.println("(X)MOVIMIENTO");
-  Serial.println("(X)LDR");
-  Serial.println("(X)APRENDIZAJE ---> BUZZER + BOTON");
-  Serial.println();
-  Serial.println(" Para activar el modo Aprendizaje pulsar 'a'");
-  Serial.println(" Para activar el modo Desinfección pulsar 'gg'");
-  Serial.println(" Para desactivar el modo Desinfección pulsar 'ff'");
-  Serial.println(" Para activar el modo Alimentación pulsar 'hh'");
+  /* Serial.println("***********************************************");
+    Serial.println("            INICIADO HAMPO V1.0");
+    Serial.println("***********************************************");
+    Serial.println();
+    Serial.println("             PRUEBAS VERIFICADAS");
+    Serial.println();
+    Serial.println("(X)Lectura de Temperatura Humedad / Modificacion Temp");
+    Serial.println("(X)SEGURIDAD");
+    Serial.println("(X)MOVIMIENTO");
+    Serial.println("(X)LDR");
+    Serial.println("(X)APRENDIZAJE ---> BUZZER + BOTON");
+    Serial.println();
+    Serial.println(" Para activar el modo Aprendizaje pulsar 'a'");
+    Serial.println(" Para activar el modo Desinfección pulsar 'gg'");
+    Serial.println(" Para desactivar el modo Desinfección pulsar 'ff'");
+    Serial.println(" Para activar el modo Alimentación pulsar 'hh'");
+    Serial.println(" CONECTANDO WIFI...");*/
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(SSD1306_WHITE);
+  display.setCursor(0, 0);
+  display.print("Connecting to ");
+  display.print(ssid);
 
+  display.display(); // actually display all of the above
+  connectWifi();
+  //Serial.print("SALIR DEL SETUP");
+  //connect to WiFi
+  WiFi.begin((char*)ssid, (char*) password);
+  // CONECTANDO
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    display.print("...");
+    display.display();
+  }
+  //Serial.print("Conectate");
 
-
+  display.print(" CONNECTED ");
+  //init and get the time
+  configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);
+  // printLocalTime();
 }
 //=================================== LOOP ================================================
 void loop() {
@@ -541,12 +604,11 @@ void loop() {
     if (!energyKey)mostrarPantalla();
     else {
       display.clearDisplay();
+      display.display();
     }
     Adiestramiento();
     Interrupts();
-
   }
-
   Ultrasonidos_Timer();
-  desinfectarAgua();
+  SerialCase();
 }
