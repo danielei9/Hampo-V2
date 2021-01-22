@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="fechaSpinner">
+        <item>Mostrar últimas 24h</item>
+        <item>Mostrar última semana</item>
+        <item>Mostrar último mes</item>
+        <item>Mostrar histórico</item>
+    </string-array>
+</resources>

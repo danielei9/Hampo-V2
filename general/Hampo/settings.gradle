@@ -1,0 +1,4 @@
+include ':Comun'
+include ':androidthingsraspberry'
+include ':app'
+rootProject.name = "Hampo"

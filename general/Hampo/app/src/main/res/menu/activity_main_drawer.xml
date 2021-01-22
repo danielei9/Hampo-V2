@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_mis_hampos"
+            android:icon="@drawable/ic_menu_hampos"
+            android:title="@string/menu_mis_hampos" />
+
+        <item
+            android:id="@+id/nav_mi_perfil"
+            android:icon="@drawable/ic_menu_profile"
+            android:title="@string/menu_mi_perfil" />
+
+        <item
+            android:id="@+id/nav_config"
+            android:icon="@drawable/ic_menu_config"
+            android:title="@string/menu_config" />
+
+        <item
+            android:id="@+id/nav_adiestramiento"
+            android:icon="@drawable/ic_menu_adiestramiento"
+            android:title="@string/menu_adiestramiento" />
+
+        <item
+            android:id="@+id/nav_FAQ"
+            android:icon="@drawable/ic_menu_faq"
+            android:title="@string/menu_FAQ" />
+    </group>
+</menu>

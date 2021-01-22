@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.nav_FAQ" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="83dp"
+        tools:layout_editor_absoluteY="56dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/FAQs_titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingBottom="8dp"
+                android:text="Preguntas Frecuentes"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/FAQs_subtitulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="16dp"
+                android:text="Estas FAQ buscan aclarar dudas básicas sobre Hampo"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/FAQs_general"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingBottom="8dp"
+                android:text="General"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/FAQs_link_pregunta1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="8dp"
+                android:text="¿Qué es Hampo?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#1E90FF"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/FAQs_link_pregunta2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="8dp"
+                android:text="¿Para quién es Hampo?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#1E90FF"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/FAQs_link_pregunta3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="8dp"
+                android:text="¿Qué edad tiene Hampo?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#1E90FF"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/FAQs_link_pregunta4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="16dp"
+                android:text="¿Quiénes son las personas que están detrás de Hampo?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#1E90FF"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/FAQs_app"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingBottom="8dp"
+                android:text="Elementos básicos de la app"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/FAQs_link_pregunta5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="8dp"
+                android:text="¿Qué animales puedo monitorizar con Hampo?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#1E90FF"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/FAQs_link_pregunta6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="8dp"
+                android:text="¿Quién puede hacer uso de Hampo?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#1E90FF"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/FAQs_link_pregunta7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="8dp"
+                android:text="¿Qué significan los colores en mi Hampo?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#1E90FF"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/FAQs_link_pregunta8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="16dp"
+                android:text="¿Cómo puedo crear un nuevo Hampo?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#1E90FF"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/FAQs_dispositivo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingBottom="8dp"
+                android:text="Elementos básicos del dispositivo"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/FAQs_link_pregunta9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="8dp"
+                android:text="¿Qué información puedo obtener de mi dispositivo Hampo?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#1E90FF"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/FAQs_link_pregunta10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="16dp"
+                android:text="¿Puedo obtener más sensores paar incorporarlos a mi dispositivo Hampo?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#1E90FF"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/FAQs_seguridad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingBottom="8dp"
+                android:text="Seguridad"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/FAQs_link_pregunta11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="8dp"
+                android:text="¿Qué tan seguro es Hampo?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#1E90FF"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/FAQs_link_pregunta12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="8dp"
+                android:text="¿Cómo filtran los datos?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#1E90FF"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/FAQs_link_pregunta13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="24dp"
+                android:text="¿Por qué debería confiar en ustedes?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#1E90FF"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/FAQs_pregunta1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingBottom="8dp"
+                android:text="¿Qué es Hampo?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/FAQs_respuesta1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="16dp"
+                android:text="Hampo es una aplicación que te permite llevar un control en todo momento de tu mascota.  "
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/FAQs_pregunta2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingBottom="8dp"
+                android:text="¿Para quién es Hampo?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="#000000"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/FAQs_respuesta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="16dp"
+                android:text="Hampo es para todos los que tengan un hámster y quieren poder saber cómo se encuentra desde su móvil."
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/FAQs_pregunta3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingBottom="8dp"
+                android:text="¿Qué edad tiene Hampo?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/FAQs_respuesta2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="16dp"
+                android:text="Hampo es una aplicación nueva, que sigue aún en desarrollo."
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/FAQs_pregunta4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingBottom="8dp"
+                android:text="¿Quiénes son las personas que estás detrás de Hampo?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/FAQs_respuesta3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="16dp"
+                android:text="Somos un grupo de 6 estudiantes de la Universidad Politecnica de Valencia apasionados por las nuevas tecnologías y las IoT."
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/FAQs_pregunta5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingBottom="8dp"
+                android:text="¿Qué animales puedo monitorizar con Hampo?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/FAQs_respuesta4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="16dp"
+                android:text="Se pensó para monitorizar hámsters de cualquier raza, pero también sirve para cualquier roedor de características similares."
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/FAQs_pregunta6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingBottom="8dp"
+                android:text="¿Quién puede hacer uso de Hampo?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/FAQs_respuesta5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="16dp"
+                android:text="Toda persona que haya adquirido la jaula necesaria para su mascota y la haya vinculado a su cuenta de esta app."
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/FAQs_pregunta7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingBottom="8dp"
+                android:text="¿Qué significan los colores en mi Hampo?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/FAQs_respuesta6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="16dp"
+                android:text="Te ayudas a hacerte unna idea de cómo está tu mascota. El verde indica que todo va bien, el amarillo algo no está como debería pero no es peligroso para su mascota y el rojo ya es algo peligroso pra tu mascota y deberías revisar que esta pasando. "
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/FAQs_pregunta8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingBottom="8dp"
+                android:text="¿Cómo puedo crear un nuevo Hampo?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/FAQs_respuesta7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="16dp"
+                android:text='En el momento que pulsas a "Crear Hampo" des la pantalla de "Mis Hampos", puedes llenar los datos manualmente o si tu dispositivo tiene NFC puedes simplemente escanear la jaula que has adquirido.'
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/FAQs_pregunta9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingBottom="8dp"
+                android:text="¿Qué información puedo obtener de mi dispoditivo Hampo?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/FAQs_respuesta8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="16dp"
+                android:text="Puedes saber como están el bebedero y el comedero de tu mascota, además sabrás la temperatura en la jaula, la iluminación y hasta la actividad de tu mascota, Y todo esto en tiempo real."
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/FAQs_pregunta13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingBottom="8dp"
+                android:text="¿Puedo obtener más sensores para incorporarlos a mi dispositivo Hampo?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/FAQs_respuesta12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="16dp"
+                android:text="Actualmente seguimos en desarrollo así que es muy probable que haya novedades, para saber si puedes mejorar tu jaula ponte en contacto con nosotros usando hampo@gmail.com"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/FAQs_pregunta10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingBottom="8dp"
+                android:text="¿Qué tan seguro es Hampo?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/FAQs_respuesta9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="16dp"
+                android:text="Hampo guarda sus valores en la nube encriptados de manera que nadie puede acceder a ellos. Utilizamos una base de datos proporcionada por Google con su seguridad de confianza."
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/FAQs_pregunta11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingBottom="8dp"
+                android:text="¿Cómo filtran los datos?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/FAQs_respuesta10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="16dp"
+                android:text="Usamos una red de sensores para recoger los datos y almacenarlos en la nube. Desde allí simplemente te los mostramos a través de la appde una forma de fácil en esta app."
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/FAQs_pregunta12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:paddingBottom="8dp"
+                android:text="¿Por qué debería confiar en ustedes?"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/FAQs_respuesta11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingBottom="16dp"
+                android:text="Somos un grupo de gente muy concienciada en la seguridad de los datos y queremos proporcionar una experiencia tan buena como segura. "
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

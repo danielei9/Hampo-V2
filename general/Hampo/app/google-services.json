@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "727657116484",
+    "firebase_url": "https://proyectogti2a.firebaseio.com",
+    "project_id": "proyectogti2a",
+    "storage_bucket": "proyectogti2a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727657116484:android:dae67d1e4621f13ddadd11",
+        "android_client_info": {
+          "package_name": "com.example.hampo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727657116484-jgl7t2mau5odi4cn3aq9306n1lohu7j8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hampo",
+            "certificate_hash": "93976c01dc7ccf4dc7c1ac6ed039dc2596bdd15d"
+          }
+        },
+        {
+          "client_id": "727657116484-sg79nu7t2i56pudb1k6iu1t04tg2av1a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hampo",
+            "certificate_hash": "1aa30460da299415d79601da88e0f73c6758db81"
+          }
+        },
+        {
+          "client_id": "727657116484-rggq5plq6oim16os4fh4nbopst8rac0c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCM9LkqQwq7TWCjHp11-6MK6dWsefwliMw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727657116484-rggq5plq6oim16os4fh4nbopst8rac0c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727657116484:android:2c30cdc88c0bcd33dadd11",
+        "android_client_info": {
+          "package_name": "com.example.proyectogti2a"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727657116484-et3jvl284bto6i45qoqdkoss34llu4pk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.proyectogti2a",
+            "certificate_hash": "93976c01dc7ccf4dc7c1ac6ed039dc2596bdd15d"
+          }
+        },
+        {
+          "client_id": "727657116484-rggq5plq6oim16os4fh4nbopst8rac0c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCM9LkqQwq7TWCjHp11-6MK6dWsefwliMw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727657116484-rggq5plq6oim16os4fh4nbopst8rac0c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

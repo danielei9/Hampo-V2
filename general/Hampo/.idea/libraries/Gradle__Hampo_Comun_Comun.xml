@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: Hampo.Comun.Comun">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Comun/build/libs/Comun.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

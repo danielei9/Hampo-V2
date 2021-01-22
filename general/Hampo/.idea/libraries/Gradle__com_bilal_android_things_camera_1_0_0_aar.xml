@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="Gradle: com.bilal:android-things-camera:1.0.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fd4f678654485bace3eaef80c8f3c55a/jetified-android-things-camera-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fd4f678654485bace3eaef80c8f3c55a/jetified-android-things-camera-1.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fd4f678654485bace3eaef80c8f3c55a/jetified-android-things-camera-1.0.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0208d1d0b17e7dbc7d4a7dca1c831a85/jetified-android-things-camera-1.0.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0208d1d0b17e7dbc7d4a7dca1c831a85/jetified-android-things-camera-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0208d1d0b17e7dbc7d4a7dca1c831a85/jetified-android-things-camera-1.0.0/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.bilal/android-things-camera/1.0.0/fcbf00bf489fea0f46ed258a16d1c1edda4b547/android-things-camera-1.0.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.bilal/android-things-camera/1.0.0/1d74d3a17eb4ea483b9e1d9d10d40a92ca2ddafd/android-things-camera-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Hampo.iml" filepath="$PROJECT_DIR$/.idea/modules/Hampo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Comun/Hampo.Comun.iml" filepath="$PROJECT_DIR$/.idea/modules/Comun/Hampo.Comun.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/androidthingsraspberry/Hampo.androidthingsraspberry.iml" filepath="$PROJECT_DIR$/.idea/modules/androidthingsraspberry/Hampo.androidthingsraspberry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Hampo.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Hampo.app.iml" />
+    </modules>
+  </component>
+</project>
