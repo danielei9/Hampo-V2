@@ -1,2 +1,1 @@
-# Hampo-V2
-Proyecto Jaula Domotica
+Proyecto desarrollado por Daniel Poquet y Daniel Burruchaga

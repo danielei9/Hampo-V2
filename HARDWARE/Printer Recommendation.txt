@@ -1,0 +1,4 @@
+Notas para impresion:
+Tubos pequeños adaptadores --> scale Object 0.7=x 0.7=Y Z=1
+jail --> 0.75 0.75 1 
+Connectors scale 0.7 0.7  1 
